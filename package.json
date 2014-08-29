@@ -25,6 +25,11 @@
     "url": "https://github.com/zoemes/template"
   },
   "author": "Zoe Ames <zoeames@gmail.com>",
+  "contributors": [
+        "JoAnn Brooks <joannbrooks036@gmail.com>",
+        "Mikey Badr <mfbadr@gmail.com>",
+        "Logan Richardson <g.logan.richardson@gmail.com>"
+          ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zoeames/template/issues"
@@ -45,7 +50,8 @@
     "moment": "^2.8.2",
     "mongodb": "^1.4.9",
     "morgan": "^1.2.3",
-    "multiparty": "^3.3.2"
+    "multiparty": "^3.3.2",
+    "tablesort": "^1.6.4"
   },
   "devDependencies": {
     "blanket": "^1.1.6",
