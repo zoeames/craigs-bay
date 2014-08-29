@@ -28,6 +28,7 @@ prop-f
 - feature 2
 - feature 3
 - feature 4
+- feature 4
 
 ### Running Tests
 ```bash
