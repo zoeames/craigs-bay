@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/zoeames/craigs-bay/badge.png)](https://coveralls.io/r/zoeames/craigs-bay)
 
 ### About
-write a description about your project
+A Craigslist Ebay hybrid where you can trade your stuff.
 
 ### Models
 ```
@@ -35,7 +35,10 @@ $ npm test
 ```
 
 ### Contributors
-- [Chyld Medford](https://github.com/chyld)
+- [Zoe Ames](https://github.com/zoeames)
+- [JoAnn Brooks](https://github.com/jbrooks036)
+- [Mikey Badr](https://github.com/mfbadr)
+- [Logan Richardson](https://github.com/GLoganDR)
 
 ### License
 [MIT](LICENSE)
