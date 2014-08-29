@@ -1,7 +1,7 @@
 {
   "name": "craigs-bay",
   "version": "0.0.0",
-  "description": "ebay craigslist hybrid for item swqping",
+  "description": "ebay craigslist hybrid for item swaping",
   "main": "app/index.js",
   "directories": {
     "test": "test"
