@@ -1,7 +1,7 @@
 ## name of project
 ### Code Badges
-build status icon
-coverage status icon
+[![Build Status](https://travis-ci.org/zoeames/craigs-bay.svg)](https://travis-ci.org/zoeames/craigs-bay)
+[![Coverage Status](https://coveralls.io/repos/zoeames/craigs-bay/badge.png)](https://coveralls.io/r/zoeames/craigs-bay)
 
 ### About
 write a description about your project
