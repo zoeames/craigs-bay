@@ -1,0 +1,33 @@
+extends ../shared/template
+block content
+  h2 New Item
+  .row
+    .col-xs-6
+      form(role='form', method='post', action='/items/show', enctype='multipart/form-data')
+        .form-group
+          label(for='name') Name
+          input.form-control#name(type='text', name='name', autofocus=true)
+        .form-group
+          label(for='description') Description
+          input.form-control#description(type='text', name='description')
+        .form-group
+          label(for='photos') Photos
+          input.form-control#photos(type='file', name='photos', multiple=true)
+        .form-group
+          label(for='condition') Condition
+          select#condition.form-control(name='condition')
+            option Excellent
+            option Good
+            option Fair
+        .form-group
+          label(for='category') Category
+          select#category.form-control(name='category')
+            option Clothing
+            option Home
+            option Transportation
+
+        button.btn.btn-primary(type='submit') Add Item
+    .col-xs-6
+
+block scripts
+
