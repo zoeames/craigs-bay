@@ -1,0 +1,44 @@
+{
+  "_id" : {"$oid":"100000000000000000000001"},
+  "name" : "disco ball",
+  "ownerId" : {"$oid":"000000000000000000000001"},
+  "photo": "www.photo.com",
+  "desc" : "12-inch diameter, with color light",
+  "cond" : "good",
+  "category" : "home",
+  "status" : "free"
+}
+
+{
+  "_id" : {"$oid":"100000000000000000000002"},
+  "name" : "Harry Potter T-shirt",
+  "ownerId" : {"$oid":"000000000000000000000002"},
+  "photo": "www.photo.com",
+  "desc" : "X-large, black background, 100% cotton",
+  "cond" : "excellent",
+  "category" : "clothing",
+  "status" : "isBid"
+}
+
+{
+  "_id" : {"$oid":"100000000000000000000003"},
+  "name" : "boa constrictor",
+  "ownerId" : {"$oid":"000000000000000000000003"},
+  "photo": "www.photo.com",
+  "desc" : "12 feet long, sleeps most days",
+  "cond" : "good",
+  "category" : "home",
+  "status" : "isAuction"
+}
+
+{
+  "_id" : {"$oid":"100000000000000000000004"},
+  "name" : "antique 3-speed bike",
+  "ownerId" : {"$oid":"000000000000000000000004"},
+  "photo": "www.photo.com",
+  "desc" : "made in England",
+  "cond" : "fair",
+  "category" : "transportation",
+  "status" : "isAuction"
+}
+

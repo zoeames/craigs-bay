@@ -1,11 +1,40 @@
 {
   "_id" : {"$oid":"000000000000000000000001"},
-  "email" : "bob@aol.com",
-  "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2"
+  "name" : "Zoe Smith",
+  "email" : "zoe@mailinator.com",
+  "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
+  "phone":"9253242952",
+  "photo":"www.photo.com",
+  "loc" : "San Francisco, CA"
 }
+
 {
   "_id" : {"$oid":"000000000000000000000002"},
-  "email" : "sue@aol.com",
-  "password" : "$2a$10$sjPx9TkrEASeXzH6uuDCDO.n1Sj/H2A/bu/9hBFfm5fm3Z4LzrEPa"
+  "name" : "Mikey Smith",
+  "email" : "mikey@mailinator.com",
+  "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
+  "phone":"6154794892",
+  "photo":"www.photo.com",
+  "loc" : "Portland, OR"
+}
+
+{
+  "_id" : {"$oid":"000000000000000000000003"},
+  "name" : "Logan Smith",
+  "email" : "logan@mailinator.com",
+  "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
+  "phone":"6158189354",
+  "photo":"www.photo.com",
+  "loc" : "Charleston, IL"
+}
+
+{
+  "_id" : {"$oid":"000000000000000000000004"},
+  "name" : "JoAnn Smith",
+  "email" : "joann@mailinator.com",
+  "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
+  "phone":"6172766178",
+  "photo":"www.photo.com",
+  "loc" : "Cambridge, MA"
 }
 
