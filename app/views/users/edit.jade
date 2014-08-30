@@ -1,0 +1,10 @@
+extends ../shared/template
+block content
+  h2 Edit Your Profile
+  .panel.panel-default
+    .panel-body
+      h2= user.name
+
+block scripts
+  script(src='/js/user/home.js')
+
