@@ -27,19 +27,6 @@ describe('items', function(){
       });
     });
   });
-
-  describe('get /', function(){
-    it('should fetch the home page', function(done){
-      request(app)
-      .get('/')
-      .end(function(err, res){
-        expect(res.status).to.equal(200);
-        expect(res.text).to.include('Home');
-        done();
-      });
-    });
-  });
-
   describe('get /items/new', function(){
     it('should show the new item page', function(done){
       request(app)
@@ -60,7 +47,7 @@ describe('items', function(){
       request(app)
       .post('/items')
       .set('cookie', cookie)
-      .send('name=be+a+doctor&due=2014-11-30&tags=a%2Cb%2Cc%2Cd')
+      .send('name=car&description=goes+gast&photo=http%3A%2F%2Fwww.picshunger.com%2Fwp-content%2Fuploads%2F2014%2F05%2FPuppy.jpg&condition=Excellent&category=Clothing')
       .end(function(err, res){
         expect(res.status).to.equal(302);
         done();

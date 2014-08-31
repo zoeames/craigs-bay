@@ -7,7 +7,7 @@ exports.new = function(req, res){
 };
 
 exports.create = function(req, res){
-  Item.create(req.body, res.locals.user.id, function(){
-    res.redirect('/items/:id');
+  Item.create(req.body, res.locals.user._id, function(){
+    res.redirect('/users/'+res.locals.user._id+'/items');
   });
-};
+}
