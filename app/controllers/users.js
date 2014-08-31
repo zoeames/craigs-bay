@@ -1,6 +1,7 @@
 'use strict';
 
-var User = require('../models/user');
+var User = require('../models/user'),
+    Item = require('../models/item');
 
 exports.new = function(req, res){
   res.render('users/new');
@@ -43,7 +44,7 @@ exports.authenticate = function(req, res){
 
 exports.show = function(req, res){
   User.findById(req.params.id, function(err, client){
-    console.log(client);
+    //console.log(client);
     res.render('users/show', {client:client});
   });
 };
@@ -55,5 +56,19 @@ exports.edit = function(req, res){
     }else{
       res.redirect('/users/'+client._id);
     }
+  });
+};
+
+exports.update = function(req, res){
+  res.locals.user.save(req.body, function(){
+    res.redirect('/users/'+res.locals.user._id);
+  });
+};
+
+exports.items = function(req, res){
+  //add User.findbyID and pass that to view as well
+  Item.findAllByOwnerId(req.params.id, function(err, items){
+    console.log(items);
+    res.render('users/itemList', {items:items});
   });
 };

@@ -1,4 +1,4 @@
-/* global geocode, google */
+/* global geocode */
 
 (function(){
   'use strict';
@@ -13,7 +13,7 @@
     var origin = $('#locName').val();
     geocode(origin, function(locName, locLat, locLng){
       $('#locName').val(locName);
-      $('#locLat').val(locLng);
+      $('#locLat').val(locLat);
       $('#locLng').val(locLng);
     });
   }

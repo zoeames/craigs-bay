@@ -1,0 +1,23 @@
+extends ../shared/template
+block content
+  h2 Items
+  table.table.table-striped.table-hover.table-bordered
+    thead
+      tr
+        th Name
+        th Photo
+        th Description
+        th Condition
+        th Category
+        th Status
+    tbody
+      each item in items
+        tr
+          td: a(href='/items/#{item._id}')= item.name
+          td= item.photo
+          td= item.description
+          td= item.condition
+          td= item.category
+          td= item.status
+
+block scripts
