@@ -1,4 +1,4 @@
-/* global geocode, google */
+/* global geocode */
 
 (function(){
   'use strict';

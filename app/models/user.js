@@ -34,7 +34,7 @@ User.prototype.save = function(o, cb){
   properties.forEach(function(property){
     switch(property){
       case 'loc':
-        self.loc = {name:o.loc[0], lat:o.loc[1], lng:o.loc[2]}
+        self.loc = {name:o.loc[0], lat:o.loc[1], lng:o.loc[2]};
         break;
       default:
         self[property] = o[property];
