@@ -4,10 +4,29 @@ block content
   .panel.panel-default
     .panel-body
       if client._id == user._id.toString()
-        h1 My Profile
-        a.btn.btn-primary(href='/users/#{user._id}/edit') Edit my profile
+        .row
+          h1 My Profile
+          .col-xs-6
+            a.btn.btn-primary(href='/users/#{user._id}/edit') Edit my profile
+          .col-xs-6
+            a.btn.btn-primary(href='/users/#{user._id}/items') My Items
+        .row
+          .col-xs-6
+            h2 Name: #{user.name}
+            h2 Location: #{user.loc.name}
+            h2 Email: #{user.email}
+            h2 Phone Number: #{user.phone}
+          .col-xs-6
+            img(src=user.photo)
       else
-        h1 #{client.name}'s Profile
+        h3 #{client.name}'s Profile
+        .col-xs-6
+          h2 Name: #{client.name}
+          h2 Location: #{client.loc.name}
+          h2 Email: #{client.email}
+          h2 Phone Number: #{client.phone}
+        .col-xs-6
+          img(src=user.photo)
 
 block scripts
   script(src='/js/user/home.js')
