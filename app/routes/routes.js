@@ -31,6 +31,8 @@ module.exports = function(app, express){
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
+  app.get('/users/:id', users.show);
+  app.get('/users/:id/edit', users.edit);
 
   app.get('/items/new', items.new);
   app.post('/items', items.create);

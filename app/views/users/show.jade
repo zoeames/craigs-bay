@@ -1,0 +1,14 @@
+extends ../shared/template
+block content
+  h2 Profile
+  .panel.panel-default
+    .panel-body
+      if client._id == user._id.toString()
+        h1 My Profile
+        a.btn.btn-primary(href='/users/#{user._id}/edit') Edit my profile
+      else
+        h1 #{client.name}'s Profile
+
+block scripts
+  script(src='/js/user/home.js')
+

@@ -1,0 +1,31 @@
+extends ../shared/template
+block content
+  h2 Edit Your Profile
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-xs-6
+          form(role='form', method='post', action='/users/#{user._id}')
+            input(type='hidden', name='_method', value='put')
+            .form-group
+              label(for='name') Name
+              input.form-control#name(type='text', name='name', value=user.name)
+            .form-group
+              label(for='email') Email
+              input.form-control#email(type='email', name='email', value=user.email, autofocus=true)
+            .form-group
+              label(for='locName') Location
+              input.form-control#locName(type='text', name='loc', value=user.loc.name)
+              input.form-control#locLat(type='hidden', name='loc', value=user.loc.lat)
+              input.form-control#locLng(type='hidden', name='loc', value=user.loc.lng)
+            .form-group
+              label(for='phone') Phone
+              input.form-control#phone(type='tel', name='phone', value=user.phone)
+            .form-group
+              label(for='photo') Photo
+              input.form-control#photo(type='text', name='photo', value=user.photo)
+            button.btn.btn-primary(type='submit') Submit
+          .col-xs-6
+block scripts
+  script(src='/js/user/editprofile.js')
+

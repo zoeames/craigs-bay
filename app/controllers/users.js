@@ -41,3 +41,19 @@ exports.authenticate = function(req, res){
   });
 };
 
+exports.show = function(req, res){
+  User.findById(req.params.id, function(err, client){
+    console.log(client);
+    res.render('users/show', {client:client});
+  });
+};
+
+exports.edit = function(req, res){
+  User.findById(req.params.id, function(err, client){
+    if(res.locals.user._id.toString() === client._id.toString()){
+      res.render('users/edit', {client:client});
+    }else{
+      res.redirect('/users/'+client._id);
+    }
+  });
+};
