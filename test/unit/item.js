@@ -26,11 +26,11 @@ describe('Item', function(){
   describe('.create', function(){
     it('should create a item', function(done){
       var body = {name:'swing set', category:'home'},
-      userId = Mongo.ObjectID('000000000000000000000001');
+          userId = Mongo.ObjectID('000000000000000000000001');
       Item.create(body, userId, function(err, item){
         expect(item).to.be.instanceof(Item);
         expect(item._id).to.be.instanceof(Mongo.ObjectID);
-        expect(item.userId).to.be.instanceof(Mongo.ObjectID);
+        expect(item.ownerId).to.be.instanceof(Mongo.ObjectID);
         expect(item.name).to.equal('swing set');
         expect(item.category).to.equal('home');
         done();

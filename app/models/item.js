@@ -1,7 +1,6 @@
 'use strict';
 
-var Mongo = require('mongodb'),
-    Item  = require('./item');
+var Mongo = require('mongodb');
 
 function Item(obj, userId){
   this.id       = new Mongo.ObjectID();
@@ -23,4 +22,4 @@ Item.create = function(obj, userId, cb){
   Item.collection.save(item, cb);
 };
 
-
+module.exports = Item;
