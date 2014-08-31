@@ -1,6 +1,6 @@
 'use strict';
 
-//var Mongo = require('mongodb'),
+var Mongo = require('mongodb');
     //_     = require('lodash');
 
 function Item(obj, userId){
@@ -19,6 +19,7 @@ Object.defineProperty(Item, 'collection', {
 });
 
 Item.findAllByOwnerId = function(ownerId, cb){
+  ownerId = Mongo.ObjectID(ownerId);
   Item.collection.find({ownerId:ownerId}).toArray(cb);
 };
 

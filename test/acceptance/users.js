@@ -96,5 +96,17 @@ describe('users', function(){
       });
     });
   });
+  describe('get /users/:id/items', function(){
+    it('should show all of a users items', function(done){
+      request(app)
+      .get('/users/000000000000000000000001/items')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        expect(res.text).to.include('Items');
+        done();
+      });
+    });
+  });
 });
 

@@ -13,9 +13,6 @@
         if user
           li: a(href='/items/new') New Item
           li: a(href='/users/#{user._id}') My Profile
-          li: a(href='#') Browse Items
-          li: a(href='#') Users
-          li: a(href='#') Add Item
           li
             form.navbar-form(method='post', action='/logout')
               .form-group
