@@ -57,3 +57,9 @@ exports.edit = function(req, res){
     }
   });
 };
+
+exports.update = function(req, res){
+  res.locals.user.save(req.body, function(){
+    res.redirect('/users/'+res.locals.user._id);
+  });
+};

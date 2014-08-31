@@ -8,7 +8,7 @@ var expect    = require('chai').expect,
     dbConnect = require('../../app/lib/mongodb'),
     Mongo     = require('mongodb'),
     cp        = require('child_process'),
-    db        = 'craigs-bay-test';
+    db        = 'craigsbay-test';
 
 describe('Item', function(){
   before(function(done){
