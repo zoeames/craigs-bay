@@ -68,14 +68,12 @@ exports.update = function(req, res){
 exports.items = function(req, res){
   //add User.findbyID and pass that to view as well
   Item.findAllByOwnerId(req.params.id, function(err, items){
-    console.log(items);
     res.render('users/itemList', {items:items});
   });
 };
 
 exports.index = function(req, res){
   User.all(function(err, users){
-    console.log('>>>>>>>>> CONTROLLER - index - users: ', users);
     res.render('users/index', {users:users});
   });
 };

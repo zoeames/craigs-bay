@@ -2,7 +2,7 @@
 
 'use strict';
 
-process.env.DB   = 'template-test';
+process.env.DB   = 'craigsbay-test';
 
 var expect  = require('chai').expect,
     cp      = require('child_process'),

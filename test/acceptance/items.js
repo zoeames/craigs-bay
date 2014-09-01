@@ -2,7 +2,7 @@
 
 'use strict';
 
-process.env.DB   = 'craigs-bay-test';
+process.env.DB   = 'craigsbay-test';
 
 var expect  = require('chai').expect,
     cp      = require('child_process'),
@@ -54,7 +54,18 @@ describe('items', function(){
       });
     });
   });
-
+  describe('get /items/:id', function(){
+    it('should show an item', function(done){
+      request(app)
+      .get('/items/100000000000000000000002')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.text).to.include(302);
+        done();
+      });
+    
+    }); 
+  });
   //Last Braces//
 });
 
