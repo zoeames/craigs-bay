@@ -20,13 +20,41 @@ block content
             img(src=user.photo)
       else
         h3 #{client.name}'s Profile
-        .col-xs-6
-          h2 Name: #{client.name}
-          h2 Location: #{client.loc.name}
-          h2 Email: #{client.email}
-          h2 Phone Number: #{client.phone}
-        .col-xs-6
-          img(src=user.photo)
+        .row
+          .col-xs-6
+            h2 Name: #{client.name}
+            h2 Location: #{client.loc.name}
+            h2 Email: #{client.email}
+            h2 Phone Number: #{client.phone}
+          .col-xs-6
+            img(src=user.photo)
+        .row
+          .col-xs-6
+             .panel.panel-default
+               .panel-body
+                 form(role='form', method='post', action='/messages/#{client._id}')
+                   .row
+                     .col-xs-6
+                       .radio
+                         label
+                           input(type='radio' name='mtype' value='text' checked=true)
+                           span Text
+                       .radio
+                         label
+                           input(type='radio' name='mtype' value='email')
+                           span Email
+                       .radio
+                         label
+                           input(type='radio' name='mtype' value='internal')
+                           span Internal
+                     .col-xs-6
+                       .form-group
+                         label(for='message') Message
+                         textarea.form-control#message(name='message', autofocus=true)
+                       .form-group
+                         button.btn.btn-info.btn-sm(type='submit') Send Message
+           .col-xs-6
+
 
 block scripts
   script(src='/js/user/home.js')
