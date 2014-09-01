@@ -1,7 +1,8 @@
 'use strict';
 
-var User = require('../models/user'),
-    Item = require('../models/item');
+var User    = require('../models/user'),
+    Message = require('../models/message'),
+    Item    = require('../models/item');
 
 exports.new = function(req, res){
   res.render('users/new');
@@ -45,7 +46,11 @@ exports.authenticate = function(req, res){
 exports.show = function(req, res){
   User.findById(req.params.id, function(err, client){
     //console.log(client);
-    res.render('users/show', {client:client});
+    Message.messages(req.params.id, function(cb){
+      res.render('users/show', {client:client});
+      // res.render('users/show', {client:client, messages:messages});
+      cb();
+    });
   });
 };
 
@@ -75,9 +80,15 @@ exports.items = function(req, res){
 
 exports.index = function(req, res){
   User.all(function(err, users){
-    console.log('>>>>>>>>> CONTROLLER - index - users: ', users);
     res.render('users/index', {users:users});
   });
 };
 
-
+exports.send = function(req, res){
+  User.findById(req.params.userId, function(err, client){
+    console.log('>>>>>>>>> CONTROLLER - send - client: ', client);
+    res.locals.user.send(client, req.body, function(){
+      res.render('users/show', {client:client});
+    });
+  });
+};

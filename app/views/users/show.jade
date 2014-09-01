@@ -18,6 +18,22 @@ block content
             h2 Phone Number: #{user.phone}
           .col-xs-6
             img(src=user.photo)
+        .row
+          .col-xs-2
+          .col-xs-8
+            table.table.table-hover.table-bordered
+              thead
+                tr
+                  th From
+                  th Date
+                  th Message
+              tbody
+                each msg in msgs
+                  tr(style='background-color:#{msg.isRead ? "#eeeeee" : "#aaaaaa"} !important;')
+                    td: a.btn.btn-warning.btn-xs(href='/users/#{msg.sender.email}')= msg.sender.email
+                    td= msg.date.toDateString()
+                    td: a.btn.btn-primary.btn-xs(href='/messages/#{msg._id}')= msg.message.slice(0, 10)
+          .col-xs-2
       else
         h3 #{client.name}'s Profile
         .row
@@ -34,20 +50,6 @@ block content
                .panel-body
                  form(role='form', method='post', action='/messages/#{client._id}')
                    .row
-                     .col-xs-6
-                       .radio
-                         label
-                           input(type='radio' name='mtype' value='text' checked=true)
-                           span Text
-                       .radio
-                         label
-                           input(type='radio' name='mtype' value='email')
-                           span Email
-                       .radio
-                         label
-                           input(type='radio' name='mtype' value='internal')
-                           span Internal
-                     .col-xs-6
                        .form-group
                          label(for='message') Message
                          textarea.form-control#message(name='message', autofocus=true)
