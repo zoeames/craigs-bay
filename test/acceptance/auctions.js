@@ -27,6 +27,7 @@ describe('auctions', function(){
       });
     });
   });
+
   describe('post /auctions', function(){
     it('should make a new auction and redirect to that auction', function(done){
       request(app)
@@ -36,6 +37,19 @@ describe('auctions', function(){
       .end(function(err, res){
         expect(res.status).to.equal(302);
         expect(res.header.location).to.equal('/auctions');
+        done();
+      });
+    });
+  });
+
+  describe('get /auctions', function(){
+    it('should show the auctions page', function(done){
+      request(app)
+      .get('/auctions')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        expect(res.text).to.include('Auctions');
         done();
       });
     });

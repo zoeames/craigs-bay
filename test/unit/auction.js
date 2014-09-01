@@ -39,4 +39,12 @@ describe('Auction', function(){
       });
     });
   });
+  describe('.all', function(){
+    it('should retrieve all auctions', function(done){
+      Auction.all(function(err, auctions){
+        expect(auctions).to.have.length(3);
+        done();
+      });
+    });
+  });
 });

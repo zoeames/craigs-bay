@@ -21,4 +21,9 @@ Auction.create = function(body, cb){
   Auction.collection.save(auction, cb);
 };
 
+Auction.all = function(cb){
+  Auction.collection.find().toArray(function(err, auctions){
+    cb(err, auctions.map(function(o){return _.create(Auction.prototype, o);}));
+  });
+};
 module.exports = Auction;
