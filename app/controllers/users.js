@@ -72,3 +72,12 @@ exports.items = function(req, res){
     res.render('users/itemList', {items:items});
   });
 };
+
+exports.index = function(req, res){
+  User.all(function(err, users){
+    console.log('>>>>>>>>> CONTROLLER - index - users: ', users);
+    res.render('users/index', {users:users});
+  });
+};
+
+

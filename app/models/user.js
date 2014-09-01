@@ -55,5 +55,11 @@ User.authenticate = function(o, cb){
   });
 };
 
+User.all = function(cb){
+  User.collection.find().toArray(function(err, users){
+    cb(err, users.map(function(o){return _.create(User.prototype, o);}));
+  });
+};
+
 module.exports = User;
 
