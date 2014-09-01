@@ -108,5 +108,17 @@ describe('users', function(){
       });
     });
   });
+  describe('get /users', function(){
+    it('should show all users', function(done){
+      request(app)
+      .get('/users')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        expect(res.text).to.include('Number of Items');
+        done();
+      });
+    });
+  });
 });
 

@@ -28,5 +28,14 @@ describe('User', function(){
       expect(u).to.be.instanceof(User);
     });
   });
-});
 
+  describe('.all', function(){
+    it('should get all users', function(done){
+      User.all(function(err, users){
+        expect(users).to.have.length(4);
+        done();
+      });
+    });
+  });
+
+});
