@@ -7,9 +7,9 @@
 
   $(document).ready(function(){
     var pos = getPositions();
-    initMap(user.pos.lat, user.pos.lng, 9);
+    initMap(36, -82, 4);
     //forEach method to loop over an array in this case each user//
-    positions.forEach(function(pos){
+    pos.forEach(function(pos){
       addMarker(pos.lat, pos.lng, pos.name);
     });
   });
