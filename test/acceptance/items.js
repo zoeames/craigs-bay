@@ -64,7 +64,7 @@ describe('items', function(){
         expect(res.text).to.include('List for Auction');
         done();
       });
-    }); 
+    });
     it('should show a free item not belonging to user', function(done){
       request(app)
       .get('/items/100000000000000000000003')
@@ -74,7 +74,7 @@ describe('items', function(){
         expect(res.text).to.include('not for sale');
         done();
       });
-    }); 
+    });
   });
 });
 

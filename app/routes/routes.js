@@ -9,7 +9,8 @@ var morgan         = require('morgan'),
     security       = require('../lib/security'),
     debug          = require('../lib/debug'),
     home           = require('../controllers/home'),
-    items           = require('../controllers/items'),
+    items          = require('../controllers/items'),
+    auction        = require('../controllers/auctions'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -41,6 +42,7 @@ module.exports = function(app, express){
   app.post('/items', items.create);
   app.get('/items/:id', items.show);
 
+  app.post('/auctions', auction.create);
   console.log('Express: Routes Loaded');
 };
 

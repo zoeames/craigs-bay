@@ -1,6 +1,5 @@
 'use strict';
 
-
 var User = require('../models/user'),
     Item = require('../models/item');
 

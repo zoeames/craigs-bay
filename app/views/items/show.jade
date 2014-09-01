@@ -14,10 +14,12 @@ block content
       h2 Status
       h4= item.status
       if client._id == user._id.toString() && item.status == 'free'
-        a.btn.btn-primary(href='#') List for Auction
+        form(method='post', action='/auctions')
+          input(type='hidden', value='#{item._id}', name='itemId')
+          button.btn.btn-primary(type='submit') List for Auction
+
       if client._id !== user._id.toString() && item.status == 'free'
         h3 This item is not for sale.
-        
       if item.status == 'isBid'
         h3 This item is currently a bid
         a.btn.btn-primary(href='#') View Auction
