@@ -1,7 +1,7 @@
 'use strict';
 
-var Mongo = require('mongodb');
-    //_     = require('lodash');
+var Mongo = require('mongodb'),
+    _     = require('lodash');
 
 function Item(obj, userId){
   //this._id         = new Mongo.ObjectID();
@@ -27,5 +27,13 @@ Item.create = function(obj, ownerId, cb){
   var item = new Item(obj, ownerId);
   Item.collection.save(item, cb);
 };
+
+Item.findById = function(id, cb){
+  var _id = Mongo.ObjectID(id);
+  Item.collection.findOne({_id:_id}, function(err, obj){
+    cb(err, _.create(Item.prototype, obj));
+  });
+};
+
 
 module.exports = Item;

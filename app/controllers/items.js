@@ -11,3 +11,9 @@ exports.create = function(req, res){
     res.redirect('/users/'+res.locals.user._id+'/items');
   });
 };
+
+exports.show = function(req, res){
+  Item.findById(req.params.id, function(err, item){
+    res.render('items/show', {item:item});
+  });
+};

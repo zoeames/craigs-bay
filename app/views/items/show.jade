@@ -1,0 +1,18 @@
+extends ../shared/template
+block content
+  h1= item.name
+  .panel.panel-default
+    .panel-body
+      h2 Photo
+      h4 Photo goes here
+      h2 Description
+      h4= item.description
+      h2 Condition
+      h4= item.condition
+      h2 Status
+      h4= item.status
+
+
+block scripts
+  script(src='/js/user/home.js')
+

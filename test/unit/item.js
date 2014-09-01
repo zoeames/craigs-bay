@@ -55,5 +55,14 @@ describe('Item', function(){
       });
     });
   });
+  describe('.findById', function(){
+    it('should find an item by id', function(done){
+      var itemId = Mongo.ObjectID('100000000000000000000002');
+      Item.findById(itemId, function(err, item){
+        expect(item.name).to.equal('Harry Potter T-shirt');
+        done();
+      });
+    });
+  });
 //Last Braces//
 });

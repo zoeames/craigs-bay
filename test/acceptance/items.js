@@ -60,7 +60,7 @@ describe('items', function(){
       .get('/items/100000000000000000000002')
       .set('cookie', cookie)
       .end(function(err, res){
-        expect(res.text).to.include(302);
+        expect(res.text).to.include('Harry Potter');
         done();
       });
     
