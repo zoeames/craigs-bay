@@ -25,6 +25,8 @@ block content
           h2 Location: #{client.loc.name}
           h2 Email: #{client.email}
           h2 Phone Number: #{client.phone}
+          h2 #{client.name}'s Items
+            a.btn.btn-primary(href='/users/#{client._id}/items')  Items
         .col-xs-6
           img(src=user.photo)
 

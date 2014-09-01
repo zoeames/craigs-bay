@@ -3,6 +3,8 @@ block content
   h1= item.name
   .panel.panel-default
     .panel-body
+      h2 Owner
+      h4:  a(href='/users/#{client._id}')= client.name
       h2 Photo
       h4 Photo goes here
       h2 Description
@@ -11,6 +13,18 @@ block content
       h4= item.condition
       h2 Status
       h4= item.status
+      if client._id == user._id.toString() && item.status == 'free'
+        a.btn.btn-primary(href='#') List for Auction
+      if client._id !== user._id.toString() && item.status == 'free'
+        h3 This item is not for sale.
+        
+      if item.status == 'isBid'
+        h3 This item is currently a bid
+        a.btn.btn-primary(href='#') View Auction
+      if item.status == 'isAuction'
+        h3 This item is currently for sale
+        a.btn.btn-primary(href='#') View Auction
+
 
 
 block scripts

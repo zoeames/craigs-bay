@@ -19,7 +19,7 @@ describe('items', function(){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [process.env.DB], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
       request(app)
       .post('/login')
-      .send('email=joann@mailinator.com')
+      .send('email=zoe@mailinator.com')
       .send('password=1234')
       .end(function(err, res){
         cookie = res.headers['set-cookie'][0];
@@ -55,17 +55,26 @@ describe('items', function(){
     });
   });
   describe('get /items/:id', function(){
-    it('should show an item', function(done){
+    it('should show a free item belonging to user', function(done){
       request(app)
-      .get('/items/100000000000000000000002')
+      .get('/items/100000000000000000000001')
       .set('cookie', cookie)
       .end(function(err, res){
-        expect(res.text).to.include('Harry Potter');
+        expect(res.text).to.include('disco');
+        expect(res.text).to.include('List for Auction');
         done();
       });
-    
+    }); 
+    it('should show a free item not belonging to user', function(done){
+      request(app)
+      .get('/items/100000000000000000000003')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.text).to.include('boa');
+        expect(res.text).to.include('not for sale');
+        done();
+      });
     }); 
   });
-  //Last Braces//
 });
 

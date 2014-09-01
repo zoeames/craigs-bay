@@ -1,6 +1,8 @@
 'use strict';
 
-var Item = require('../models/item');
+
+var User = require('../models/user'),
+    Item = require('../models/item');
 
 exports.new = function(req, res){
   res.render('items/new');
@@ -14,6 +16,8 @@ exports.create = function(req, res){
 
 exports.show = function(req, res){
   Item.findById(req.params.id, function(err, item){
-    res.render('items/show', {item:item});
+    User.findById(item.ownerId, function(err, client){
+      res.render('items/show', {item:item, client:client});
+    });
   });
 };
