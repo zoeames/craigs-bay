@@ -31,8 +31,9 @@ describe('Auction', function(){
   });
   describe('.create', function(){
     it('should construct and save an auction', function(done){
-      var itemId = new Mongo.ObjectID();
-      Auction.create(itemId, function(err, auction){
+      var itemId = new Mongo.ObjectID(),
+          body = {itemId:itemId}
+      Auction.create(body, function(err, auction){
         expect(auction).to.be.ok;
         done();
       });

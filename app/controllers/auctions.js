@@ -5,7 +5,7 @@ var User    = require('../models/user'),
     Item    = require('../models/item');
 
 exports.create = function(req, res){
-  Auction.create(req.body.itemId, function(){
+  Auction.create(req.body, function(){
     res.redirect('/auctions');
   });
 };

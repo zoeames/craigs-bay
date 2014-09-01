@@ -5,18 +5,19 @@ var Mongo = require('mongodb'),
 
 
 
-function Auction(itemId){
+function Auction(o){
   //this._id         = new Mongo.ObjectID();
-  this.itemId    = itemId;
-  this.bids    = [];
+  this.itemId   = o.itemId;
+  this.ownerId  = o.ownerId;
+  this.bids     = [];
 }
 
 Object.defineProperty(Auction, 'collection', {
   get: function(){return global.mongodb.collection('auctions');}
 });
 
-Auction.create = function(itemId, cb){
-  var auction = new Auction(itemId);
+Auction.create = function(body, cb){
+  var auction = new Auction(body);
   Auction.collection.save(auction, cb);
 };
 

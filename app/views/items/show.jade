@@ -15,6 +15,7 @@ block content
       h4= item.status
       if client._id == user._id.toString() && item.status == 'free'
         form(method='post', action='/auctions')
+          input(type='hidden', value='#{user._id}', name='ownerId')
           input(type='hidden', value='#{item._id}', name='itemId')
           button.btn.btn-primary(type='submit') List for Auction
 
