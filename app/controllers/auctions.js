@@ -15,3 +15,4 @@ exports.index = function(req, res){
     res.render('auctions/index', {auctions:auctions});
   });
 };
+

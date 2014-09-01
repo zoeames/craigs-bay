@@ -1,13 +1,31 @@
 extends ../shared/template
 block content
   h1 Auctions
-  table.table.table-striped.table-hover.table-bordered
-    thead
-      tr
-        th Name
-        th Number of Items
-        th Location
-    tbody
-      each auction in auctions
-        tr
-          td= auction.itemId
+  .row
+    .col-xs-12
+      #map
+  .row
+    .col-xs-12
+      table#sort.sort.table(style='background-color: white;')
+        thead
+          tr
+            th.sort-header Name
+            th.sort-header Owner
+            th.sort-header Location
+            th.sort-header Bids
+            th.sort-header Category
+            th.sort-header Condition
+        tbody
+          each auction in auctions
+            tr(data-name=auction.user.loc.name, data-lat=auction.user.loc.lat, data-lng=auction.user.loc.lng)
+              td: a(href='/auctions/#{auction._id}')= auction.item.name
+              td: a(href='/users/#{user._id}')= auction.user.name
+              td= auction.user.loc.name
+              td= auction.bids.length
+              td= auction.item.category
+              td= auction.item.condition
+
+block scripts
+  script(src='/js/user/auctions.js')
+  script(src='/js/vendor/tablesort.min.js')
+  script(src='/js/user/tablesort.js')

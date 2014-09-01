@@ -6,9 +6,9 @@
   var map;
 
   $(document).ready(function(){
-    initMap(0, 0, 2);
-    var positions = getPositions();
-    //forEach method to loop over an array in this case each treasure//
+    var pos = getPositions();
+    initMap(user.pos.lat, user.pos.lng, 9);
+    //forEach method to loop over an array in this case each user//
     positions.forEach(function(pos){
       addMarker(pos.lat, pos.lng, pos.name);
     });
@@ -16,7 +16,7 @@
 
   function addMarker(lat, lng, name){
     var latLng = new google.maps.LatLng(lat, lng);
-    new google.maps.Marker({map: map, position: latLng, title: name, animation: google.maps.Animation.DROP, icon: '/img/chest.gif'});
+    new google.maps.Marker({map: map, position: latLng, title: name, animation: google.maps.Animation.DROP});
   }
 
   function getPositions(){
