@@ -2,46 +2,48 @@ extends ../shared/template
 block content
   h2 New Item
   .row
+    .col-xs-3
     .col-xs-6
-      form(role='form', method='post', action='/items')
-        .radio
-          label
-            input(type='radio' name='iStatus' value='isAuction')
-            span For Auction
-        .radio
-          label
-            input(type='radio' name='iStatus' value='free' checked=true)
-            span For Swap
-        .form-group
-          label(for='name') Name
-          input.form-control#name(type='text', name='name', autofocus=true)
-        .form-group
-          label(for='description') Description
-          input.form-control#description(type='text', name='description')
-        .form-group
-          label(for='photos') Photo URL
-          input.form-control#photos(type='text', name='photo')
-        .form-group
-          label(for='condition') Condition
-          select#condition.form-control(name='condition')
-            option New
-            option Excellent
-            option Good
-            option Fair
-            option Poor
-            option At Your Own Risk
-        .form-group
-          label(for='category') Category
-          select#category.form-control(name='category')
-            option Clothing
-            option Home
-            option Transportation
-            option Electronics
-            option Materials
-            option Tools
-
-        button.btn.btn-primary(type='submit') Add Item
-    .col-xs-6
+      #formBody
+        form(role='form', method='post', action='/items')
+          .radio
+            label
+              input(type='radio' name='iStatus' value='isAuction')
+              span For Auction
+          .radio
+            label
+              input(type='radio' name='iStatus' value='free' checked=true)
+          .form-group
+            label(for='name') Name:
+            input.form-control#name(type='text', name='name', autofocus=true)
+          .form-group
+            label(for='description') Description:
+            input.form-control#description(type='text', name='description')
+          .form-group
+            label(for='photos') Photo URL:
+            input.form-control#photos(type='text', name='photo')
+          .form-group
+            label(for='condition') Condition:
+            select#condition.form-control(name='condition')
+              option New
+              option Excellent
+              option Good
+              option Fair
+              option Poor
+              option At Your Own Risk
+          .form-group
+            label(for='category') Category:
+            select#category.form-control(name='category')
+              option Clothing
+              option Home
+              option Transportation
+              option Electronics
+              option Materials
+              option Tools
+          #formButton
+            button.btn.btn-primary(type='submit') Add Item
+    .col-xs-3
+>>>>>>> b842624a53fcf1bdd2513f3c19b6c09a738f2ea5
 
 block scripts
 

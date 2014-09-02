@@ -34,7 +34,7 @@ exports.bid = function(req, res){
 
 exports.swap = function(req, res){
   console.log(req.body.itemId);
-  Auction.swap(req.body.itemId, req.body.winningBidId,req.params.id, function(){
+  Auction.swap(req.body.itemId, req.body.winningBidId, req.params.id, function(){
     res.redirect('/auctions');
   });
 };
