@@ -19,6 +19,7 @@ describe('Auction', function(){
 
   beforeEach(function(done){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [db], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
+      //console.log(stdout);
       done();
     });
   });
@@ -32,7 +33,7 @@ describe('Auction', function(){
   describe('.create', function(){
     it('should construct and save an auction', function(done){
       var itemId = new Mongo.ObjectID(),
-          body = {itemId:itemId}
+          body = {itemId:itemId};
       Auction.create(body, function(err, auction){
         expect(auction).to.be.ok;
         done();
@@ -43,6 +44,15 @@ describe('Auction', function(){
     it('should retrieve all auctions', function(done){
       Auction.all(function(err, auctions){
         expect(auctions).to.have.length(3);
+        done();
+      });
+    });
+  });
+  describe('.findById', function(){
+    it('should return an auction', function(done){
+      Auction.findById('200000000000000000000001', function(err, auction){
+        expect(auction).to.be.ok;
+        console.log(auction);
         done();
       });
     });

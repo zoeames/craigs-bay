@@ -44,6 +44,11 @@ module.exports = function(app, express){
 
   app.post('/auctions', auctions.create);
   app.get('/auctions', auctions.index);
+  app.get('/auctions/:id', auctions.show);
+  app.put('/auctions/:id', auctions.bid);
+  app.post('/auction/:id/complete', auctions.swap);
+
+
   console.log('Express: Routes Loaded');
 };
 

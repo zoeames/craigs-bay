@@ -1,0 +1,41 @@
+extends ../shared/template
+block content
+  h1= auction.item.name
+  .row
+    .col-xs-12
+      #map
+  .row
+    h2 Description: #{auction.item.description}
+    h2 Category: #{auction.item.category}
+    h2 Condition: #{auction.item.condition}
+  .row
+    .col-xs-12
+      if auction.item.ownerId.toString() !== user._id.toString()
+        h3 Place a bid
+        form(role='form', method='post', action='/auctions/#{auction._id}')
+          input(type='hidden', name='_method', value='put')
+          select(name='bidId')
+            each item in biddable
+              option(value=item._id)= item.name
+          button.btn.btn-primary Place Bid
+      h2 Bids
+      table#sort.sort.table(style='background-color: white;')
+        thead
+          tr
+            th.sort-header Name
+            th.sort-header Description
+            th.sort-header Category
+            th.sort-header Condition
+        tbody
+          each bid in auction.bids
+            tr
+              td: a(href='/items/#{bid._id}')= bid.name
+              td= bid.description
+              td= bid.category
+              td= bid.condition
+              if auction.item.ownerId.toString() == user._id.toString()
+                td: form(role='form', method='post', action='/auction/#{auction._id}/complete')
+                      input(type='hidden', name='itemId', value='#{auction.item._id}')
+                      input(type='hidden', name='winningBidId', value='#{bid._id}')
+                      button.btn.btn-primary Accept Bid
+

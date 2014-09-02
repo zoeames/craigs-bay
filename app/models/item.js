@@ -24,8 +24,16 @@ Item.findAllByOwnerId = function(ownerId, cb){
 };
 
 Item.create = function(obj, ownerId, cb){
+  if (obj.iStatus == 'isAuction'){
+    var newItem = new Item(obj, ownerId);
+    Item.collection.save(newItem, function(err, item){
+      item.itemId = item._id;
+      require('./auction').create(item, cb);
+    });
+  }else{
   var item = new Item(obj, ownerId);
   Item.collection.save(item, cb);
+  }
 };
 
 Item.findById = function(id, cb){

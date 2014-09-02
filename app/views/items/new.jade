@@ -4,6 +4,14 @@ block content
   .row
     .col-xs-6
       form(role='form', method='post', action='/items')
+        .radio
+          label
+            input(type='radio' name='iStatus' value='isAuction')
+            span For Auction
+        .radio
+          label
+            input(type='radio' name='iStatus' value='free' checked=true)
+            span For Swap
         .form-group
           label(for='name') Name
           input.form-control#name(type='text', name='name', autofocus=true)

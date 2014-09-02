@@ -54,4 +54,16 @@ describe('auctions', function(){
       });
     });
   });
+  describe('get /auctions/:id', function(){
+    it('should show one item up for auction', function(done){
+      request(app)
+      .get('/auctions/200000000000000000000001')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(200);
+        expect(res.text).to.include('disco ball');
+        done();
+      });
+    });
+  });
 });
