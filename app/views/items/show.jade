@@ -1,31 +1,44 @@
 extends ../shared/template
 block content
-  h1= item.name
-  .panel.panel-default
-    .panel-body
-      h2 Owner
-      h4:  a(href='/users/#{client._id}')= client.name
-      h2 Photo
-      h4 Photo goes here
-      h2 Description
-      h4= item.description
-      h2 Condition
-      h4= item.condition
-      h2 Status
-      h4= item.status
-      if client._id == user._id.toString() && item.status == 'free'
-        form(method='post', action='/auctions')
-          input(type='hidden', value='#{user._id}', name='ownerId')
-          input(type='hidden', value='#{item._id}', name='itemId')
-          button.btn.btn-primary(type='submit') List for Auction
+  h2= item.name
+  br
+  br
+  .row
+    .col-xs-6
+      .row
+        .col-xs-3
+        .col-xs-3
+          h2 Owner:
+        .col-xs-3
+          a(href='/users/#{client._id}').btn.btn-primary= client.name
+        .col-xs-3
+        br
+      h2 Description:
+      h3= item.description
+      h2 Condition: #{item.condition}
+      h2 Status: #{item.status}
+    .col-xs-6
+      img(src=item.photo style="width: 400px;")
+    br
+    br
+  .row
+    if client._id == user._id.toString() && item.status == 'free'
+      form(method='post', action='/auctions')
+        input(type='hidden', value='#{user._id}', name='ownerId')
+        input(type='hidden', value='#{item._id}', name='itemId')
+        button.btn.btn-primary(type='submit') List for Auction
 
-      if client._id !== user._id.toString() && item.status == 'free'
-        h3 This item is not for sale.
-      if item.status == 'isBid'
+    if client._id !== user._id.toString() && item.status == 'free'
+      h3 This item is not for sale.
+    if item.status == 'isBid'
+      .col-xs-6
         h3 This item is currently a bid
+      .col-xs-6
         a.btn.btn-primary(href='#') View Auction
-      if item.status == 'isAuction'
+    if item.status == 'isAuction'
+      .col-xs-6
         h3 This item is currently for sale
+      .col-xs-6
         a.btn.btn-primary(href='#') View Auction
 
 

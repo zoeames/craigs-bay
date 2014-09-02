@@ -1,13 +1,14 @@
 extends ../shared/template
 block content
-  h1= auction.item.name
+  h2= auction.item.name
   .row
-    .col-xs-12
-      #map
-  .row
-    h2 Description: #{auction.item.description}
-    h2 Category: #{auction.item.category}
-    h2 Condition: #{auction.item.condition}
+    .col-xs-6
+      h2 Description: #{auction.item.description}
+      h2 Category: #{auction.item.category}
+      h2 Condition: #{auction.item.condition}
+    .col-xs-6
+      img(src=auction.item.photo style="width: 400px;")
+
   .row
     .col-xs-12
       if auction.item.ownerId.toString() !== user._id.toString()
