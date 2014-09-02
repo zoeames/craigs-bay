@@ -38,6 +38,7 @@ module.exports = function(app, express){
   app.get('/users/:id/items', users.items);
   app.get('/users', users.index);
   app.get('/users/:id/messages', users.messages);
+  app.post('/messages/:userId', users.send);
 
   app.get('/items/new', items.new);
   app.post('/items', items.create);
