@@ -86,7 +86,9 @@ Auction.swap = function(itemId, winningBidId, auctionId,cb){
           Auction.collection.findOne({_id:Mongo.ObjectID(auctionId)}, function(err, auction){
             async.forEach(auction.bids, function(bid){
               Item.collection.findAndModify({_id:Mongo.ObjectID(bid)},[],{$set:{status:'free'}}, cb);
-            },cb);
+            }, function(){
+              Auction.collection.remove({_id:Mongo.ObjectID(auctionId)},  cb);
+            });
           });
         });
       });
