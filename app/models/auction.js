@@ -77,9 +77,9 @@ Auction.swap = function(itemId, winningBidId, auctionId,cb){
     Item.collection.findOne({_id:Mongo.ObjectID(winningBidId)}, function(err, bidItem){
       var ownerId = wonItem.ownerId,
          winnerId = bidItem.ownerId;
-      wonItem.ownerId = winnerId;
+      wonItem.ownerId = Mongo.ObjectID(winnerId);
       wonItem.status = 'free';
-      bidItem.ownerId = ownerId;
+      bidItem.ownerId = Mongo.ObjectID(ownerId);
       bidItem.status = 'free';
       Item.collection.save(bidItem, function(){
         Item.collection.save(wonItem, function(){

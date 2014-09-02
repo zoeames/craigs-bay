@@ -4,13 +4,11 @@ block content
     thead
       tr
         th Name
-        th Number of Items
         th Location
     body
       each user in users
         tr
           td: a(href='/users/#{user._id}')= user.name
-          td ####
           td= user.loc.name
 
 block scripts
