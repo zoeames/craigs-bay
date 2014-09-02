@@ -62,16 +62,9 @@ User.all = function(cb){
 };
 
 User.prototype.send = function(receiver, obj, cb){
-  switch(obj.mtype){
-    case 'text':
-      // sendText(receiver.phone, obj.message, cb);
-      break;
-    case 'email':
-      // sendEmail(this.email, receiver.email, 'Message from Facebook', obj.message, cb);
-      break;
-    case 'internal':
-      Message.send(this._id, receiver._id, obj.message, cb);
-  }
+  console.log('>>>>>>>>>> USER - #SEND -- receiver: ', receiver);
+  console.log('>>>>>>>>>> USER - #SEND -- obj.message: ', obj.message);
+  Message.send(this._id, receiver._id, obj.message, cb);
 };
 
 module.exports = User;

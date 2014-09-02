@@ -35,15 +35,16 @@ describe('Message', function(){
   });
 
   describe('.send', function(){
-    it('should create a new Message object and save it to the message db', function(done){
+    it('should create a new Message object and save it to the message colln', function(done){
       var senderId   = '000000000000000000000001',
           receiverId = '000000000000000000000002',
           body       = 'msg body 2';
       Message.send(senderId, receiverId, body, function(err, msg){
+        console.log('>>> MESSAGE.SEND.U-TEST - msg: ', msg);
         expect(msg).to.be.instanceof(Message);
-        expect(msg.senderId).to.equal('000000000000000000000001'),
-        expect(msg.receiverId).to.equal('000000000000000000000002'),
-        expect(msg.body).to.equal('msg body 2');
+        expect(msg.senderId).to.equal('000000000000000000000001');
+        expect(msg.receiverId).to.equal('000000000000000000000002');
+        expect(msg.message).to.equal('msg body 2');
         expect(msg.date).to.be.instanceof(Date);
         expect(msg.isRead).to.be.false;
         done();

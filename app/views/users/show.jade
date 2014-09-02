@@ -6,10 +6,12 @@ block content
       if client._id == user._id.toString()
         .row
           h1 My Profile
-          .col-xs-6
-            a.btn.btn-primary(href='/users/#{user._id}/edit') Edit my profile
-          .col-xs-6
+          .col-xs-4
+            a.btn.btn-primary(href='/users/#{user._id}/edit') Edit My Profile
+          .col-xs-4
             a.btn.btn-primary(href='/users/#{user._id}/items') My Items
+          .col-xs-4
+            a.btn.btn-primary(href='/users/#{user._id}/messages') My Messages
         .row
           .col-xs-6
             h2 Name: #{user.name}
@@ -18,22 +20,6 @@ block content
             h2 Phone Number: #{user.phone}
           .col-xs-6
             img(src=user.photo)
-        .row
-          .col-xs-2
-          .col-xs-8
-            table.table.table-hover.table-bordered
-              thead
-                tr
-                  th From
-                  th Date
-                  th Message
-              tbody
-                each msg in msgs
-                  tr(style='background-color:#{msg.isRead ? "#eeeeee" : "#aaaaaa"} !important;')
-                    td: a.btn.btn-warning.btn-xs(href='/users/#{msg.sender.email}')= msg.sender.email
-                    td= msg.date.toDateString()
-                    td: a.btn.btn-primary.btn-xs(href='/messages/#{msg._id}')= msg.message.slice(0, 10)
-          .col-xs-2
       else
         h3 #{client.name}'s Profile
         .row

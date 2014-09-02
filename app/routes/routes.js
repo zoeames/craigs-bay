@@ -36,7 +36,7 @@ module.exports = function(app, express){
   app.put('/users/:id', users.update);
   app.get('/users/:id/items', users.items);
   app.get('/users', users.index);
-  app.post('/messages/:userId', users.send);
+  app.get('/users/:id/messages', users.messages);
 
   app.get('/items/new', items.new);
   app.post('/items', items.create);
