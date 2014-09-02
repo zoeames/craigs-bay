@@ -15,9 +15,9 @@ function geocode(address, cb){
 
 function createMap(selector, lat, lng, zoom){
   'use strict';
-    var styles     = [{'featureType':'landscape','stylers':[{'hue':'#00dd00'}]},{'featureType':'road','stylers':[{'hue':'#dd0000'}]},{'featureType':'water','stylers':[{'hue':'#000040'}]},{'featureType':'poi.park','stylers':[{'visibility':'off'}]},{'featureType':'road.arterial','stylers':[{'hue':'#ffff00'}]},{'featureType':'road.local','stylers':[{'visibility':'off'}]}],
-        mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.ROADMAP, styles:styles},
-               map = new google.maps.Map(document.getElementById(selector), mapOptions);
+  var styles     = [{'featureType':'landscape','stylers':[{'hue':'#00dd00'}]},{'featureType':'road','stylers':[{'hue':'#dd0000'}]},{'featureType':'water','stylers':[{'hue':'#000040'}]},{'featureType':'poi.park','stylers':[{'visibility':'off'}]},{'featureType':'road.arterial','stylers':[{'hue':'#ffff00'}]},{'featureType':'road.local','stylers':[{'visibility':'off'}]}],
+      mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.ROADMAP, styles:styles},
+      map = new google.maps.Map(document.getElementById(selector), mapOptions);
 
   return map;
 }

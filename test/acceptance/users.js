@@ -69,7 +69,7 @@ describe('users', function(){
       .set('cookie', cookie)
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        expect(res.text).to.include('Edit Your Profile');
+        expect(res.text).to.include('Edit Profile');
         done();
       });
     });

@@ -1,9 +1,9 @@
 'use strict';
 
-var User    = require('../models/user'),
-    Auction = require('../models/auction'),
-    Mongo   = require('mongodb'),
-    Item    = require('../models/item');
+var Auction   = require('../models/auction'),
+    //User    = require('../models/user'),
+    //Mongo   = require('mongodb'),
+    Item      = require('../models/item');
 
 exports.create = function(req, res){
   Auction.create(req.body, function(){
