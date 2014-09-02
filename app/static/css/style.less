@@ -1,12 +1,74 @@
-@base: red;
+@import url(http://fonts.googleapis.com/css?family=Bitter);
+@base: #B2B2FF;
+@baseText: #6363FD;
+@nav: #FFF7A4;
+@navText: #FFEE48;
+@navLite: #FFF275;
+@other: #FFE8A4;
+@otherText: #FFD148;
+@purp: #D0ACFF;
+@purpText: #9E57FD;
 
 body{
   background-color: saturate(@base, 5%);
+  font-family: 'Bitter', serif;
+  color: @baseText;
+}
+
+h2{
+  text-align: center;
+}
+
+.navbar{
+  background-color: @other;
+  border: 3px solid;
+  border-color: @otherText;
+}
+
+.navbar-default .navbar-brand{
+  color: @baseText;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: @baseText;
+}
+
+.btn-danger{
+  background-color: @baseText;
+  border-color: @base;
+  border-radius: 15px;
+}
+
+.navButton{
+  background-color: @navLite;
+  height: 30px;
+  border: 3px solid;
+  vertical-align: middle;
+  border-color: @navText;
+  border-radius: 15px;
 }
 
 #map {
   height: 500px;
-  border: 3px double black;
+}
+
+#formBody{
+  background-color: @other;
+  margin: 15px;
+  padding: 15px;
+  border: 3px solid;
+  border-color: @otherText;
+  border-radius: 15px;
+}
+
+#formButton{
+  text-align: center;
+}
+
+.btn-primary{
+  background-color: @base;
+  color: @baseText;
+  border-radius: 15px;
 }
 
 th.sort-header {
