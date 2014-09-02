@@ -1,8 +1,9 @@
 'use strict';
 
-var bcrypt = require('bcrypt'),
-    _      = require('lodash'),
-    Mongo  = require('mongodb');
+var bcrypt  = require('bcrypt'),
+    _       = require('lodash'),
+    Message = require('./message'),
+    Mongo   = require('mongodb');
 
 function User(){
 }
@@ -45,7 +46,6 @@ User.prototype.save = function(o, cb){
   User.collection.save(this, cb);
 };
 
-
 User.authenticate = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
     if(!user){return cb();}
@@ -59,6 +59,12 @@ User.all = function(cb){
   User.collection.find().toArray(function(err, users){
     cb(err, users.map(function(o){return _.create(User.prototype, o);}));
   });
+};
+
+User.prototype.send = function(receiver, obj, cb){
+  console.log('>>>>>>>>>> USER - #SEND -- receiver: ', receiver);
+  console.log('>>>>>>>>>> USER - #SEND -- obj.message: ', obj.message);
+  Message.send(this._id, receiver._id, obj.message, cb);
 };
 
 module.exports = User;

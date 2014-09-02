@@ -1,7 +1,8 @@
 'use strict';
 
-var User = require('../models/user'),
-    Item = require('../models/item');
+var User    = require('../models/user'),
+    Message = require('../models/message'),
+    Item    = require('../models/item');
 
 exports.new = function(req, res){
   res.render('users/new');
@@ -44,7 +45,6 @@ exports.authenticate = function(req, res){
 
 exports.show = function(req, res){
   User.findById(req.params.id, function(err, client){
-    //console.log(client);
     res.render('users/show', {client:client});
   });
 };
@@ -75,6 +75,26 @@ exports.items = function(req, res){
 exports.index = function(req, res){
   User.all(function(err, users){
     res.render('users/index', {users:users});
+  });
+};
+
+exports.send = function(req, res){
+  User.findById(req.params.userId, function(err, client){
+    console.log('>>>>>>>>> CONTROLLER - send - client: ', client);
+    console.log('>>>>>>>>> CONTROLLER - send - req.body: ', req.body);
+    console.log('>>>>>>>>> CONTROLLER - send - res.locals: ', res.locals);
+   // debugger;
+    res.locals.user.send(client, req.body, function(){
+      res.render('users/show', {client:client});
+    });
+  });
+};
+
+exports.messages = function(req, res){
+  console.log('>>>>  fAMBR - req.params.id: ', req.params.id);
+  Message.findAllMessagesByReceiverId(req.params.id, function(err, messages){
+    console.log('>>>>  fAMBR - messages: ', messages);
+    res.render('users/msgList', {messages:messages});
   });
 };
 

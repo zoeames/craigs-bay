@@ -6,10 +6,12 @@ block content
       if client._id == user._id.toString()
         .row
           h1 My Profile
-          .col-xs-6
-            a.btn.btn-primary(href='/users/#{user._id}/edit') Edit my profile
-          .col-xs-6
+          .col-xs-4
+            a.btn.btn-primary(href='/users/#{user._id}/edit') Edit My Profile
+          .col-xs-4
             a.btn.btn-primary(href='/users/#{user._id}/items') My Items
+          .col-xs-4
+            a.btn.btn-primary(href='/users/#{user._id}/messages') My Messages
         .row
           .col-xs-6
             h2 Name: #{user.name}
@@ -20,15 +22,26 @@ block content
             img(src=user.photo)
       else
         h3 #{client.name}'s Profile
-        .col-xs-6
-          h2 Name: #{client.name}
-          h2 Location: #{client.loc.name}
-          h2 Email: #{client.email}
-          h2 Phone Number: #{client.phone}
-          h2 #{client.name}'s Items
-            a.btn.btn-primary(href='/users/#{client._id}/items')  Items
-        .col-xs-6
-          img(src=user.photo)
+        .row
+          .col-xs-6
+            h2 Name: #{client.name}
+            h2 Location: #{client.loc.name}
+            h2 Email: #{client.email}
+            h2 Phone Number: #{client.phone}
+          .col-xs-6
+            img(src=user.photo)
+        .row
+          .col-xs-6
+             .panel.panel-default
+               .panel-body
+                 form(role='form', method='post', action='/messages/#{client._id}')
+                   .row
+                       .form-group
+                         label(for='message') Message
+                         textarea.form-control#message(name='message', autofocus=true)
+                       .form-group
+                         button.btn.btn-info.btn-sm(type='submit') Send Message
+           .col-xs-6
 
 block scripts
   script(src='/js/user/home.js')
