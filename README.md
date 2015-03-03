@@ -1,4 +1,4 @@
-## name of project
+## Craig's Bay
 ### Code Badges
 [![Build Status](https://travis-ci.org/zoeames/craigs-bay.svg)](https://travis-ci.org/zoeames/craigs-bay)
 [![Coverage Status](https://coveralls.io/repos/zoeames/craigs-bay/badge.png)](https://coveralls.io/r/zoeames/craigs-bay)
