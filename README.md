@@ -7,7 +7,7 @@
 A Craigslist Ebay hybrid where you can trade your stuff.
 
 ### Screenshots
-![Image1](https://raw.githubusercontent.com/zoeames/trailer-love/master/docs/screenshots/craigsbay.png)
+![Image1](https://raw.githubusercontent.com/zoeames/craigs-bay/master/docs/screenshots/craigsbay.png)
 
 
 ### Models
