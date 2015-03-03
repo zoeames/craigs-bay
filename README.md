@@ -6,29 +6,37 @@
 ### About
 A Craigslist Ebay hybrid where you can trade your stuff.
 
+### Screenshots
+![Image1](https://raw.githubusercontent.com/zoeames/trailer-love/master/docs/screenshots/craigsbay.png)
+
+
 ### Models
 ```
-Model 1
-prop-a
-prop-b
-.classMethod-c
-#instanceMethod-d
+User
 ```
 
 ```
-Model 2
-prop-e
-prop-f
-.classMethod-g
-#instanceMethod-h
+Auction
+```
+
+```
+Item
+```
+
+```
+Message
 ```
 
 ### Features
-- feature 1
-- feature 2
-- feature 3
-- feature 4
-- feature 4
+- [x] Users can login
+- [x] Users can register
+- [x] Users can create an item to auction
+- [x] Users can create an auction
+- [x] Users can bid on an auction
+- [x] Users can pick a winning bid
+- [x] Items get swapped when user picks winning bid
+- [x] Users can send and receive messages
+
 
 ### Running Tests
 ```bash
@@ -44,4 +52,3 @@ $ npm test
 
 ### License
 [MIT](LICENSE)
-
