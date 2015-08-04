@@ -13,7 +13,7 @@
   "name" : "Mikey Smith",
   "email" : "mikey@mailinator.com",
   "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
-  "phone":"6154794892",
+  "phone":"5555555555",
   "photo":"www.photo.com",
   "loc" : "Portland, OR"
 }
@@ -23,7 +23,7 @@
   "name" : "Logan Smith",
   "email" : "logan@mailinator.com",
   "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
-  "phone":"6158189354",
+  "phone":"5555555555",
   "photo":"www.photo.com",
   "loc" : "Charleston, IL"
 }
@@ -33,7 +33,7 @@
   "name" : "JoAnn Smith",
   "email" : "joann@mailinator.com",
   "password" : "$2a$10$XR.IQktUUujLBxed70GQn.jWY1wZ9ThM0Tar9wTqzkI4Uk1uP2Or2",
-  "phone":"6172766178",
+  "phone":"5555555555",
   "photo":"www.photo.com",
   "loc" : "Cambridge, MA"
 }
